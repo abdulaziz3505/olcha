@@ -1,38 +1,46 @@
-.App {
-  text-align: center;
+.container{
+    width: 1280px;
+    height: 100%;
+    margin: auto;
+
+}
+.btn{
+    padding: 5px;
+    border-radius: 6px;
+    outline: auto;
+}
+a{
+    /* inherit -> otasidan meros oladi */
+    color: inherit;
+    text-decoration: inherit;
+}
+li{
+    list-style: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.text__container h1,
+.text__container p,
+.text__container h2{
+    margin-left: 34px;
+}
+.text__container p{
+    width: 90%;
+    margin: 20px 34px;
+    color: gray;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+
+
+
+
+
+@media screen and (max-width:1200px){
+    .container{
+        width: 96%;
+    }
 }
