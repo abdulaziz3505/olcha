@@ -82,6 +82,7 @@ function Home() {
       <div className="home">
         <Banner/>
           <Category/>
+          <Products/>
         <div className="maps__container">
           {
             data?.map((item, inx)=> <div key={inx} className="map">
@@ -91,7 +92,6 @@ function Home() {
           }
             
         </div>
-        <Products/>
 
         <div className="text__container">
           <h1>Интернет магазин - Olcha удобный гипермаркет для покупок</h1>
