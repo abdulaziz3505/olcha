@@ -28,7 +28,7 @@
 }
 .product__data img{
     width: 70%;
-
+    margin-left: 25px;
 }
 .product__name{
     align-items: flex-start;
@@ -64,4 +64,24 @@
     font-size: 18px;
     border-radius: 8px;
     margin-top: 30px;
+}
+
+@media screen and (max-width:550px){
+    .product__about{
+        height: auto;
+        justify-content: space-around;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 5px;
+    }
+    
+    .product__data{
+        width: auto;
+        height: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 0px;
+        position: relative;
+    }
 }
