@@ -48,7 +48,7 @@ function Navbar() {
             <button><FiSearch/></button>
           </div>
           <div className="nav__items">
-            <Link to={"/"} className="nav__item">
+            <Link to={"/taq"} className="nav__item">
             <BiBarChart/>
             <p>Taqqoslash</p>
            </Link>

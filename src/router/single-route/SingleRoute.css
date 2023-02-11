@@ -60,3 +60,13 @@
 .product__add h2{
     margin: 10px 0;
 }
+
+
+
+@media screen and (max-width:412px){
+    .product_pic_info{
+        width: 70%;
+        height: 100%;
+        display: flex;
+    }
+}

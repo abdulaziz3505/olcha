@@ -1,0 +1,16 @@
+.taq{
+    min-height: 300px;
+}
+.taq .icon{
+    width: 300px;
+    height: 100px;
+}
+.icon svg{
+    margin-left: 600px;
+    font-size: 90px;
+    margin-top: 50px;
+}
+.taq h2{
+    margin-left: 38%;
+    margin-top: 56px;
+}
