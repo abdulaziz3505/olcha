@@ -6,7 +6,6 @@ function Taq() {
   return (
     <div className='taq'>
         <div className="icon">
-            <GiScales/>
         </div>
             <h2>Maxsulotlarni solishtirish</h2>
     </div>
