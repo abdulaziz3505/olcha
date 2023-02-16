@@ -16,6 +16,7 @@
     width: 45%;
     height: 100%;
     margin: 40px;
+    transform: translateY(-40px);
 }
 .product__pic img{
     width: 100%;
@@ -34,10 +35,13 @@
     color: #808080;
     line-height: 1.3;
 }
+.product__info h2{
+    font-size: 20px;
+}
 .product__info h5{
     color: blue;
     font-size: 18px;
-    padding: 10px 0;
+    margin-top: 280px;
     font-weight: 200;
 }
 .product__info span{
@@ -52,6 +56,98 @@
 .product__brends{
     margin-top: 30px;
 }
+.product__sell{
+    width: 30%;
+    
+    
+    
+}
+.product__add{
+    width: 30%;
+    box-shadow: 0 0 5px #bababa;
+    border-radius: 20px;
+}
+.product__add h2{
+    margin: 35px 25px;
+    font-size: 28px;
+}
+.delivery_info{
+    color: #808080;
+    margin: -10px 25px;
+}
+.TruckDelivery{
+    font-size: 24px;
+}
+.Exclamation{
+    font-size: 25px;
+    padding-left: 0px;
+}
+.product__add{
+    margin-bottom: 20px;
+}
+.product__add h3{
+    padding: 20px 0 10px 0;
+}
+
+
+
+
+.bank_icon{
+    width: 100px;
+    height: 30px;
+    border: 1px solid #808080;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    color: #ba0025;
+    
+    margin: 20px 20px 0 0;
+}
+hr{
+    margin-top: 40px;
+}
+
+
+
+.delivery_time{
+    font-size: 16px;
+    padding: 0px 22px 30px 22px;
+    line-height: 1.5;
+}
+.product__add button{
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    text-align: center;
+    font-size: 17px;
+    border-radius: 10px;
+    margin: 20px 0 0 0;
+}
+.product_add_bascet{
+    background-color: #12BF6C;
+    color: #fff;
+    border: 2px solid #12BF6C;
+}
+.product_add_bascet:hover{
+    background-color: #0ea65d;
+    transition: .3s;
+}
+.product__bascet{
+    font-size: 20px;
+}
+.product_buy{
+    background-color: #fff;
+}
+.basket__red{
+    background-color: #da002b;
+    border: 2px solid #da002b;
+    font-size: 20px;
+}
+.basket__red:hover{
+    background-color: #ba0025;
+}
+
 .product__sell{
     width: 30%;
     

@@ -26,11 +26,29 @@ function SingleRoute() {
                     <img src={oneItem?.urls[0]} alt="" />
                 </div>
                 <div className="product__info">
-                    {
-                        oneItem?.desc?.map((info, ind)=><p key={ind}>{info}</p>)
-                    }
+                    <h2>{oneItem?.desc}</h2>
                     <h5>Barcha xususiyatlarini ko'rish</h5>
                     <span><BiCheckShield className='guaranty'/> *** oy kafolat</span>
+                </div>
+            </div>
+            <div className="product__sell">
+                <div className="product__add">
+                    <h2>{oneItem?.price.brm()} so'm</h2>
+                    <p className='delivery_info'>Yetkazib berish to'g'risida ma'lumot: <HiOutlineExclamationCircle className='Exclamation'/></p>
+                    <h3><TbTruckDelivery className='TruckDelivery'/> Standart yetkazib berish</h3>
+                    <p className='delivery_time'>Manzilga qarab *** soatdan *** ish kunigacha yetkazib beriladi</p>
+                    <hr />
+                    <button className='product_add_bascet'><SlBasket className='product__bascet'/> Add to cart</button>
+                    <button className='product_buy'>One click purchase</button>
+                </div>
+                <div className="product__add ">
+                    <p className='delivery_info'>Bo'lib to'lash</p>
+                    <h2>{oneItem?.price} so'm / 12 oy</h2>
+                    <span className='bank_icon'>gladiator</span>
+                    <span className='bank_icon'>BANK</span>
+                    <hr />
+                    <button className='product_add_bascet basket__red'>Pay in installments</button>
+                    
                 </div>
             </div>
             

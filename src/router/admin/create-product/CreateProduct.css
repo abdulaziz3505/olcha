@@ -1,0 +1,11 @@
+.create h2{
+    margin-left: 420px;
+    transform: translateY(-20px);
+    color: red
+}
+.create-from{
+    width: 100%;
+    min-height: 550px;
+    border: 2px solid red;
+    margin: auto 45px;
+}

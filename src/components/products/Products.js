@@ -23,7 +23,13 @@ function Products() {
 
 
   const addToCart = (item) => {
-    console.log(item)
+    let index = cart.findIndex(i=> i.id === item.id)
+    if( index < 0 ){
+      return dispatch({type: ADD_TO_CART, payload: [...cart, {...item, qty: 1}]})
+    }
+    let newCart = cart.map((pro, inx)=> inx === index ? {...pro, qty: pro.qty + 1} : pro)
+     
+    dispatch( {type: ADD_TO_CART, payload: newCart})
   }
   
 
@@ -46,7 +52,7 @@ function Products() {
                 </Link>
                  <p className='product__name'>{item?.title}</p>
                  <del className='product__delete'>{item?.del}</del>
-                 <p className='product__price'>{item?.price} so'm</p>
+                 <p className='product__price'>{item?.price.brm()} so'm</p>
                  
                  <p className='product__credit'>{Math.floor(item?.price / 12)} So'm</p>
                  <button onClick={()=> addToCart(item)}><FiShoppingCart/> Add to Cart</button>

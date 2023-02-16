@@ -5,8 +5,15 @@ import { FaAppStoreIos } from "react-icons/fa"
 import { FaGooglePlay } from "react-icons/fa"
 import { GoLocation } from "react-icons/go"
 import { AiOutlineMail } from "react-icons/ai"
+import { useLocation } from "react-router-dom"
+
 
 function Footer() {
+    const {pathname} = useLocation()
+  if(pathname.includes("admin")){
+    return <></>
+  }
+
   return (
     <div className='footer'>
         <div className="container">

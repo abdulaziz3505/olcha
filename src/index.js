@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import "number-brm"
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -8,6 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 import rootReducer from './context/reducer';
 import { legacy_createStore as createStore } from 'redux';
 import { Provider } from 'react-redux';
+import BackToTop from './components/back-to-top/BackToTop';
 
 const store = createStore(rootReducer)
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,6 +18,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
     <BrowserRouter>
+    <BackToTop/>
        <App />
     </BrowserRouter>
     </Provider>

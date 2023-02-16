@@ -8,6 +8,7 @@ import Like from './router/like/Like'
 import Taq from './router/taq/Taq'
 import Footer from './components/footer/Footer';
 import SingleRoute from './router/single-route/SingleRoute';
+import Admin from './router/admin/Admin';
 
 function App() {
   return (
@@ -15,11 +16,12 @@ function App() {
       <SubHeader/>
       <Navbar/>
       <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/like' element={<Like/>}></Route>
-        <Route path='/cart' element={<Cart/>}></Route>
-        <Route path='/taq' element={<Taq/>}></Route>
-        <Route path='/product/:id' element={<SingleRoute/>}></Route>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/like' element={<Like/>}/>
+        <Route path='/cart' element={<Cart/>}/>
+        <Route path='/admin/*' element={<Admin/>}/>
+        <Route path='/taq' element={<Taq/>}/>
+        <Route path='/product/:id' element={<SingleRoute/>}/>
       </Routes>
 
       
