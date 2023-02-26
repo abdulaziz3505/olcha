@@ -1,0 +1,31 @@
+.maps__container{
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.maps__container .map{
+    width: 140px;
+    height: 150px;
+    border-radius: 8px;
+    background: linear-gradient(50deg, blueviolet, blue);
+    margin: 20px;
+}
+.maps__container .map img{
+    margin: 15px;
+    background: none;
+}
+.map h4{
+    text-align: center;
+    transform: translateY(18px);
+}
+.map .btn{
+    padding: 10px 20px;
+    background: var(--bg);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-top: 30px;
+}

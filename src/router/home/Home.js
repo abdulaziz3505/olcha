@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Banner from '../../components/banner/Banner'
 import "./Home.css"
 import img1 from "../../assets/img1.png"
@@ -17,9 +17,15 @@ import img13 from "../../assets/img13.png"
 import img14 from "../../assets/img14.png"
 import Category from '../../components/category/Category'
 import Products from '../../components/products/Products'
+import { db } from "../../server"
+import { collection, getDocs } from "firebase/firestore"
+import { doc, deleteDoc} from 'firebase/firestore'
+import { useParams } from 'react-router-dom'
 
-function Home() {
-  let data = [
+function Home({admin}) {
+  const [refresh, setRefresh] = useState(false)
+
+  let nma = [
     {
       image: img1,
       text: "Смартфоны"
@@ -77,21 +83,37 @@ function Home() {
       text: "Руль для авто"
     },
   ]
+
+  const [data, setData] = useState([])
+
+  const emptyColRef = collection(db, "empty")
+
+  useEffect(()=>{
+    const getEmpty = async () =>{
+      const empty = await getDocs(emptyColRef)
+      setData(empty.docs.map((pro)=> ({ ...pro.data(), id: pro.id}) ))
+    }
+    getEmpty()
+  }, [])
+
+  console.log(data);
+  const deleCategory = async(id)=>{
+    await deleteDoc(doc(db, "empty", id))
+      .then(res=> {
+        console.log(res)
+        setRefresh(!refresh)
+      })
+      .catch(res=> console.log(res))
+  }
+
+
   return (
     <div className='container'>
       <div className="home">
         <Banner/>
           <Category/>
           <Products/>
-        <div className="maps__container">
-          {
-            data?.map((item, inx)=> <div key={inx} className="map">
-              <img src={item?.image} alt="" />
-              <h4>{item?.text}</h4>
-            </div>)
-          }
-            
-        </div>
+       
 
         <div className="text__container">
           <h1>Интернет магазин - Olcha удобный гипермаркет для покупок</h1>

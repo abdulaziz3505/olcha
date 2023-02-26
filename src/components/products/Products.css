@@ -6,8 +6,8 @@
     display: flex;
     flex-wrap: wrap;
     height: 100%;
-    gap: 30px;
-    justify-content: space-around;
+    gap: 10px;
+    justify-content: flex-start;
 }
 
 .product__data{
@@ -28,6 +28,8 @@
 }
 .product__data img{
     width: 70%;
+    height: 200px;
+    object-fit: contain;
     margin-left: 25px;
 }
 .product__name{

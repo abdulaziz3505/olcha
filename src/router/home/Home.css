@@ -15,11 +15,22 @@
     margin: 20px;
 }
 .maps__container .map img{
-    margin-left: 5px;
+    margin: 15px;
+    background: none;
 }
 .map h4{
     text-align: center;
     transform: translateY(18px);
+}
+.map .btn{
+    padding: 10px 20px;
+    background: var(--bg);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-top: 30px;
 }
 
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { PRODUCTS } from '../../static';
 import "./SingleRoute.css"
@@ -7,13 +7,38 @@ import {HiOutlineExclamationCircle} from "react-icons/hi"
 import {TbTruckDelivery} from "react-icons/tb"
 import {SlBasket} from "react-icons/sl"
 
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "../../server"
+
 function SingleRoute() {
     const params = useParams()
-    const oneItem = PRODUCTS?.find(el => el.id === params.id)
+
+    const [data, setData] = useState([])
+
+  const productColRef = collection(db, "products")
+
+  useEffect(()=>{
+    const getProducts = async () =>{
+      const products = await getDocs(productColRef)
+      setData(products.docs.map((pro)=> ({ ...pro.data(), id: pro.id}) ))
+    }
+    getProducts()
+  }, [])
+
+
+    const oneItem = data?.find(el => el.id === params.id)
     console.log(oneItem);
     
     if(!oneItem){
-        return <div> <h2>Ma'lumot topilmadi</h2> </div>        
+        return <div className='placeholder container'> 
+                <div className='placeholder__image'></div>
+                <div className='placeholder__text'>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+             </div>        
     }
     
   return (
@@ -27,6 +52,8 @@ function SingleRoute() {
                 </div>
                 <div className="product__info">
                     <h2>{oneItem?.desc}</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi repellat beatae illo natus harum ullam ad nisi necessitatibus, sint placeat deleniti rem voluptas nulla, tempore laboriosam quas, voluptatum error perferendis!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi repellat beatae illo natus harum ullam ad nisi necessitatibus, sint placeat deleniti rem voluptas nulla, tempore laboriosam quas, voluptatum error perferendis!</p>
                     <h5>Barcha xususiyatlarini ko'rish</h5>
                     <span><BiCheckShield className='guaranty'/> *** oy kafolat</span>
                 </div>

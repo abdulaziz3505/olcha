@@ -11,7 +11,23 @@ import { legacy_createStore as createStore } from 'redux';
 import { Provider } from 'react-redux';
 import BackToTop from './components/back-to-top/BackToTop';
 
-const store = createStore(rootReducer)
+// Redux-persists - Redux va localstorage bilan ishlash
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+import { PersistGate } from 'redux-persist/integration/react'
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ["cart", "heart", "auth"],
+  blacklist: ["water"]
+}
+ 
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+let store = createStore(persistedReducer)
+let persistor = persistStore(store)
+
+// const store = createStore(rootReducer)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -19,7 +35,9 @@ root.render(
     <Provider store={store}>
     <BrowserRouter>
     <BackToTop/>
-       <App />
+    <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
     </BrowserRouter>
     </Provider>
   </React.StrictMode>

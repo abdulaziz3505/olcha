@@ -7,33 +7,49 @@ import {SlBasket} from "react-icons/sl"
 import {BsPerson} from "react-icons/bs"
 import { Link } from 'react-router-dom'
 import { FiX } from "react-icons/fi"
-import { useSelector } from 'react-redux'
-import { useLocation } from "react-router-dom"
+import { useSelector, useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { LOG_IN } from '../../context/action/actionType';
 
-const NAVBAR_DATA = [
-  {
-    text: "Taqqoslash",
-    icons: <BiBarChart/>
-  },
-  {
-    text: "Sevimlilar",
-    icons: <AiOutlineHeart/>
-  },
-  {
-    text: "Savatcha",
-    icons: <SlBasket/>
-  },
-  {
-    text: "Taqqoslash",
-    icons: <BsPerson/>
-  }
-]
 
 function Navbar() {
   const [ show, setShow] = useState(false)
+  const [ username, setUsername ] = useState("")
+  const [ password, setPassword ] = useState("")
+  const [ error, setError ] = useState(false)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const auth = useSelector(s => s.auth)
+  
   document.body.style.overflow = show ? "hidden" : "auto"
+  const cart = useSelector(e => e.cart)
 
-  const cart = useSelector(s => s.cart)
+
+  const register = ()=>{
+    if( username === "gladiator" && password === "0987654321" ){
+     dispatch({type: LOG_IN, payload: {username, password}})
+     navigate("/admin")
+    }else{
+      console.log("error");
+      setError(true)
+    }
+  }
+
+  const defaultCase = ()=>{
+    setShow(false)
+    setUsername("")
+    setPassword("")
+    setError(false)
+  }
+
+  const checkAdmin = ()=>{
+    if(auth){
+      return navigate("/admin")
+    }
+    setShow(true)
+  }
+
+
   console.log(cart);
 
   const {pathname} = useLocation()
@@ -71,7 +87,7 @@ function Navbar() {
             <p>Savatcha</p>
             <span className='nav__circle'>{cart?.length}</span>
            </Link>
-            <div onClick={()=> setShow(true)} className="nav__item">
+            <div onClick={checkAdmin} className="nav__item">
             <BsPerson/>
             <p>Kirish</p>
            </div>
@@ -83,16 +99,23 @@ function Navbar() {
 
     {
       show ? <>
-     <div onClick={()=> setShow(false)} className="nav__shadow"></div>
-     <div onClick={()=> setShow(false)} className="nav__login">
-      <FiX className='nav__close'/>
+     <div onClick={defaultCase} className="nav__shadow"></div>
+     <div className="nav__login">
+      <FiX onClick={defaultCase}  className='nav__close'/>
       <h2>Войти или создать профиль</h2>
+      <span 
+        className='error' 
+        style={{opacity: error ? 1 : 0}}
+        >Username yoki Parol xato</span>
       <br />
       <br />
       <br />
       <h3>Номер телефона</h3>
       <div className="nav__inp">
-       <input type="text" placeholder='+998'/>
+       <input value={username} onChange={e => setUsername(e.target.value)} type="text" placeholder='username'/>
+       <input value={password} onChange={e => setPassword(e.target.value)} type="password" placeholder='password'/>
+       <br />
+       <button onClick={register}>LOGIN</button>
       </div>
     </div>
     </>: 

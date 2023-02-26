@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import SubHeader from "./components/sub-header/SubHeader"
 import Navbar from "./components/navbar/Navbar"
 import Home from "./router/home/Home"
@@ -9,8 +9,11 @@ import Taq from './router/taq/Taq'
 import Footer from './components/footer/Footer';
 import SingleRoute from './router/single-route/SingleRoute';
 import Admin from './router/admin/Admin';
+import { useSelector } from 'react-redux';
+
 
 function App() {
+  const auth = useSelector(s=> s.auth)
   return (
     <div className="App">
       <SubHeader/>
@@ -19,6 +22,11 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/like' element={<Like/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        {
+          auth ? <Route path='/' element={<Navigate replace to={"/admin"} />}/>
+          :
+          <Route path='/admin' element={<Navigate replace to={"/"} />}/>
+        }
         <Route path='/admin/*' element={<Admin/>}/>
         <Route path='/taq' element={<Taq/>}/>
         <Route path='/product/:id' element={<SingleRoute/>}/>

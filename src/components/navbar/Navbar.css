@@ -116,12 +116,21 @@
     border-radius: 8px;
 }
 .nav__inp input{
-    padding: 12px 40px;
+    padding: 10px 37px;
     border-radius: 8px;
     border: 2px solid black;
     font-size: 18px;
     transform: translate(-18px);
     color: black;
+}
+
+.error{
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: red;
+    opacity: 0;
+    user-select: none;
 }
 
 
