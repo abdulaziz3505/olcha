@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import SubHeader from "./components/sub-header/SubHeader"
+import Sidebar from './sidebar/Sidebar';
 import Navbar from "./components/navbar/Navbar"
 import Home from "./router/home/Home"
 import Cart from './router/cart/Cart'
@@ -16,21 +16,20 @@ function App() {
   const auth = useSelector(s=> s.auth)
   return (
     <div className="App">
-      <SubHeader/>
-      <Navbar/>
+      <Sidebar/>
+      {/* <Navbar/> */}
       <Routes>
+
         <Route path='/' element={<Home/>}/>
-        <Route path='/like' element={<Like/>}/>
-        <Route path='/cart' element={<Cart/>}/>
         {
           auth ? <Route path='/' element={<Navigate replace to={"/admin"} />}/>
           :
           <Route path='/admin' element={<Navigate replace to={"/"} />}/>
         }
         <Route path='/admin/*' element={<Admin/>}/>
-        <Route path='/taq' element={<Taq/>}/>
         <Route path='/product/:id' element={<SingleRoute/>}/>
       </Routes>
+
 
       
 

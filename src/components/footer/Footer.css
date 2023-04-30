@@ -1,128 +1,53 @@
 .footer{
     width: 100%;
-    height: 600px;
-    background: var(--bg-light);
+    height: 350px;
+    background: #262a2c;
 }
-.footer__bottom{
-    display: flex;
-}
-
-.apps{
-    width: 300px;
-    height: 130px;
-    margin-left: 200px;
-    transform: translateY(20px);
-}
-.apps .app:hover{
-    background: #d3d3d3;
-    cursor: pointer;
-}
-.apps h2{
-    font-size: 12px;
-}
-.phone{
-    width: 480px;
-    height: 240px;
-    margin-left: 200px;
-    transform: translateY(20px);
-    background: url('./footer-img.745872f8\ \(1\).webp') no-repeat center/cover;
-}
-.footer__middle{
+.footer__texts{
     width: 100%;
-    border: 1px solid #ddd;
-    margin-top: 70px;
-    transform: translate(-20px);
-}
-.footer__bottom .apps{
+    height: 330px;
+    margin-top: 8px;
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 70px;
 }
-.apps .app{
-    width: 120px;
-    height: 40px;
-    border-radius: 8px;
-    background: var(--bg-light);
-    margin: 10px;
-    background: #fff;
+.footer__abouts{
+    width: 260px;
+    height: 250px;
+    margin: 15px 70px;
 }
-.app span .svg{
-    margin-left: 10px;
-    transform: translateY(5px);
+.footer__aboutss{
+    width: 260px;
+    height: 250px;
+    margin: 15px 70px;
+}
+.footer__abouts h2{
+    color: #fff;
+    margin: 10px 10px;
+}
+.footer__aboutss h2{
+    color: #fff;
+    margin: 10px 10px;
+}
+.footer__abouts li{
+    list-style: none;
+    margin: 10px 10px; 
+    color: #5e6162;
+    font-weight: 600;
     font-size: 18px;
 }
-.app h3{
-    font-size: 13px;
-    margin-left: 4px;
-    transform: translateY(5px);
-}
-
-
-.footer__top{
-    width: 100%;
-    height: 280px;
+.payment{
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 20px;
 }
-.footer__top .footer__texts .local{
-    color: red;
+.footer__aboutss .payment .footer__payments{
+    width: 120px;
+    height: 50px;
+    margin-left: 15px;
+    background: url("../../assets/payme-footer.svg") no-repeat center/contain;
 }
-.footer__top .footer__texts{
-    width: 270px;
-    height: 270px;
-}
-.footer__top .textss{
-    width: 270px;
-    height: 270px;
-}
-.textss p{
-    transform: translateY(80px);
-}
-.footer__texts h1{
-    font-family: cursive;
-    color: red;
-    margin-left: 5px;
-}
-.footer__texts h4{
-    margin: 5px;
-}
-.footer__texts p:hover{
-    color: rgb(167, 167, 167);
-    cursor: pointer;
-    transition: .25s;
-}
-.textss p:hover{
-    color: rgb(167, 167, 167);
-    cursor: pointer;
-    transition: .25s;
-}
-.footer__texts h3{
-    margin: 5px;
-}
-.footer__top .texts p{
-    margin: 10px;
+.footer__aboutss .payment .footer__paymentss{
+    width: 100px;
+    height: 50px;
+    background: url("../../assets/Uzcard-orange.webp") no-repeat center/contain;
 }
 
 
-.footer__top .card{
-    width: 400px;
-    height: 270px;
-    background: url("./Снимок\ экрана\ 2023-01-31\ 235242.png") no-repeat center/contain;
-}
-
-@media screen and (max-width:412px){
-    .footer{
-        margin-top: 100px;
-        height: 1200px;
-    }
-    .footer__top .footer__texts,
-    .textss{
-        margin-left: 100px;
-    }
-    .footer .footer__bottom .apps .app{
-        transform: translate(-90px);
-    }
-}

@@ -46,14 +46,14 @@ function Products({admin}) {
     dispatch( {type: ADD_TO_CART, payload: newCart})
   }
   
-  const deleteProduct = async(id)=>{
-    await deleteDoc(doc(db, "products", id))
-      .then(res=> {
-        console.log(res)
-        setRefresh(!refresh)
-      })
-      .catch(res=> console.log(res))
-  }
+    const deleteProduct = async(id)=>{
+      await deleteDoc(doc(db, "products", id))
+        .then(res=> {
+          console.log(res)
+          setRefresh(!refresh)
+        })
+        .catch(res=> console.log(res))
+    }
 
   return (
     <div className='product'>
@@ -62,24 +62,17 @@ function Products({admin}) {
              data?.map((item, inx)=>
                <div className='product__data' key={inx}>
 
-                <div  className='product__heart'>
-                  {
-                    likes?.some(i => i.id === item.id) ? 
-                    <AiFillHeart style={{color: "red"}} onClick={()=> dispatch({type:REMOVE_LIKE, payload: item.id})}/> : 
-                    <AiOutlineHeart onClick={()=> addHeart(item)} />
-                  }
-                </div>
+
                 <Link to={`/product/${item.id}`}>
                  <img src={item?.urls[0]} alt="" />
                 </Link>
-                 <p className='product__name'>{item?.title.length > 30 ? item.title.slice(0, 30)+"..." : item.title}</p>
-                 <p className='product__price'>{item?.price} so'm</p>
+                 <h3 className='product__name'>{item?.title.length > 30 ? item.title.slice(0, 30)+"..." : item.title}</h3>
+                 <p className='product__price'>{item?.desc}</p>
                  
-                 <p className='product__credit'>{Math.floor(item?.price / 12)} So'm</p>
                 {
                   admin ? <button onClick={()=> deleteProduct(item.id)}>Delete</button>
                    : 
-                   <button onClick={()=> addToCart(item)}><FiShoppingCart/> Add to Cart</button>
+                   <button onClick={()=> addToCart(item)}>{item?.price}</button>
 
                 }
                  <br />

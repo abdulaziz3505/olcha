@@ -71,6 +71,13 @@ function Cart({karzinka}) {
     let api = new XMLHttpRequest();
     api.open("GET", API_URL, true);
     api.send();
+    const deleteINP = () =>{
+       setName("")
+       setTel("")
+       setAddress("")
+       setDesc("")
+    }
+    deleteINP()
   }
 
   
@@ -78,11 +85,7 @@ function Cart({karzinka}) {
     <div className='cartt'>
         <h2>Cart item</h2>
         <h2>Jami narxi: {karzinka.reduce((a, b) => a + (b.price * b.qty), 0).brm()} so'm</h2>
-        <input className='inp' value={name} onChange={e => setName(e.target.value)} type="text" placeholder='name' />
-        <input className='unp' value={tel} onChange={e => setTel(e.target.value)} type="text" placeholder='tel' />
-        <input className='anp' value={address} onChange={e => setAddress(e.target.value)} type="text" placeholder='address' />
-        <textarea className='area' value={desc} onChange={e => setDesc(e.target.value)} name="" placeholder='desc' id="" cols="30" rows="10"></textarea>
-        <button className='atn' onClick={order}>Buyurtma berish</button>
+
         <div className='carts'>
           {
             karzinka.map((item, inx)=> <div key={inx} className="cart__item">
@@ -91,7 +94,7 @@ function Cart({karzinka}) {
               </div>
               <div className="cart__text">
                 <p className='cart__name'>{item?.title}</p>
-                <p className='cart__price'>{item?.price.brm()} so'm</p>
+                <p className='cart__price'>{item?.price} so'm</p>
               </div>
               <div className="cart__button">
                 <button className='cart__minus' disabled={ item?.qty <= 1 } onClick={()=> removeCart(item)}>-</button>
