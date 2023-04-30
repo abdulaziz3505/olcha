@@ -17,6 +17,7 @@ import img13 from "../../assets/img13.png"
 import img14 from "../../assets/img14.png"
 import Category from '../../components/category/Category'
 import Products from '../../components/products/Products'
+import Navbar from '../../components/navbar/Navbar'
 import { db } from "../../server"
 import { collection, getDocs } from "firebase/firestore"
 import { doc, deleteDoc} from 'firebase/firestore'
@@ -111,6 +112,7 @@ function Home({admin}) {
     <div className='container'>
       <div className="home">
         <Banner/>
+        <Navbar/>
         <br />
           {/* <Category/> */}
           <Products/>
